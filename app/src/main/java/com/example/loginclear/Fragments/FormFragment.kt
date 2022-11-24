@@ -1,7 +1,8 @@
 package com.example.loginclear.Fragments
 
 import android.annotation.SuppressLint
-import android.content.Context
+import android.app.AlertDialog
+import android.content.DialogInterface
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -12,9 +13,7 @@ import android.widget.EditText
 import android.widget.Toast
 import com.example.loginclear.Ciclo
 import com.example.loginclear.DB.CicloDBHelper
-import com.example.loginclear.HomeActivity
 import com.example.loginclear.R
-import com.google.android.material.snackbar.Snackbar
 
 class FormFragment(dbH: CicloDBHelper) : Fragment() {
     var dbHelper = dbH;
@@ -35,29 +34,28 @@ class FormFragment(dbH: CicloDBHelper) : Fragment() {
             val inputTitulo = titulo.text.toString()
             val fullName : EditText = view.findViewById(R.id.txtFullName)
             val inputFullName = fullName.text.toString()
-            dbHelper.insertCiclo(Ciclo(inputTitulo.toString(), inputFullName.toString()))
-            /*
-                val bundle = Bundle()
-                bundle.putString("title",inputTitulo)
-                bundle.putString("fullName",inputFullName)
-                val listFragment = ListFragment()
-                listFragment.arguments = bundle
-            */
-            //val listFragment = ListFragment(HomeActivity.dbHelper)
-            //activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.fragment_container,listFragment)?.addToBackStack(null)?.commit()
+            var id = dbHelper.getAllData().size
+            dbHelper.insertCiclo(Ciclo(id, inputTitulo.toString(), inputFullName.toString()))
             Toast.makeText(context, "¡Ciclo Guardado!", Toast.LENGTH_SHORT).show()
         }
 
-        btnList.setOnClickListener() {
-            dbHelper.logListData()
-        }
+        btnList.setOnClickListener() { dbHelper.logListData() }
 
         btnDelete.setOnClickListener(){
-            dbHelper.deleteAllData()
-            val snack = Snackbar.make(view.findViewById(R.id.fragment_form),"Datos Borrados",Snackbar.LENGTH_LONG)
-            snack.show()
+            val builder = AlertDialog.Builder(context)
+            builder.setMessage("¿Estás seguro que quieres borrar todos los ciclos? ¡Desgraciado!")
+                .setPositiveButton("OK",
+                    DialogInterface.OnClickListener { dialog, id ->
+                        dbHelper.deleteAllData()
+                        Toast.makeText(context, "¡Ciclos Borrados!", Toast.LENGTH_SHORT).show()
+                    })
+                .setNegativeButton("Cancel",
+                    DialogInterface.OnClickListener { dialog, id ->
+                        Toast.makeText(context, "¡Cuidado con ese dedo!", Toast.LENGTH_SHORT).show()
+                    })
+            // Create the AlertDialog object and return it
+            builder.create().show()
         }
-
         return view
     }
 }

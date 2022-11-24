@@ -45,29 +45,34 @@ class CicloDBHelper (context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
             do{
                 val title = rs.getString(1)
                 val editorial = rs.getString(2)
-                val ciclo = Ciclo(title,editorial)
+                var id = rs.getInt(0)
+                val ciclo = Ciclo(id, title,editorial)
                 llistat.add(ciclo);
             }while(rs.moveToNext())
         }
         return llistat;
     }
 
+    fun deleteSelectData(id: Int) {
+        var db = this.writableDatabase
+        db.execSQL("DELETE FROM $TABLE_NAME WHERE id=$id")
+    }
+
     fun deleteAllData() {
-        //var db = this.writableDatabase
-        var db = this.readableDatabase
+        var db = this.writableDatabase
         db.execSQL("DELETE FROM $TABLE_NAME");
     }
 
     fun logListData(){
         var db = this.readableDatabase
         var rs = db.rawQuery("SELECT * FROM $TABLE_NAME",null)
-
         if(rs.moveToFirst()){
             do{
+                val id = rs.getInt(0)
                 val title = rs.getString(1)
                 val editorial = rs.getString(2)
-                val ciclo = Ciclo(title,editorial)
-                val cicloString = ciclo.getTitle()+", "+ciclo.getFullName()
+                val ciclo = Ciclo(id, title,editorial)
+                val cicloString = ciclo.id.toString()+","+ciclo.title+", "+ciclo.fullName
                 Log.i("LOG CICLOS",cicloString)
             }while(rs.moveToNext())
         }

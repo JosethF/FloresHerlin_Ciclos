@@ -26,7 +26,7 @@ class ListFragment(dbHelper: CicloDBHelper) : Fragment() {
         var llistat: MutableList<Ciclo> = dbHelper.getAllData();
         var mRecyclerView: RecyclerView = view.findViewById(R.id.recyclerList);
         mRecyclerView.layoutManager = LinearLayoutManager(context)
-        val mAdapter : RecyclerViewAdapter = RecyclerViewAdapter(llistat, context);
+        val mAdapter : RecyclerViewAdapter = RecyclerViewAdapter(llistat, context, dbHelper);
         mRecyclerView.adapter = mAdapter
         mRecyclerView.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL));
         return view
