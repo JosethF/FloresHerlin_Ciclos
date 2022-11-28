@@ -3,6 +3,7 @@ package com.example.loginclear.Recycler
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,6 +15,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.loginclear.Ciclo
 import com.example.loginclear.DB.CicloDBHelper
 import com.example.loginclear.Fragments.DetailFragment
+import com.example.loginclear.Fragments.FormFragment
+import com.example.loginclear.Fragments.ListFragment
+import com.example.loginclear.HomeActivity
 import com.example.loginclear.R
 
 class RecyclerViewAdapter(llistat: MutableList<Ciclo>, context: Context?, db:CicloDBHelper): RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>() {

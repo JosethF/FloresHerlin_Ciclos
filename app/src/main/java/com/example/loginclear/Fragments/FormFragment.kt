@@ -37,9 +37,13 @@ class FormFragment(dbH: CicloDBHelper) : Fragment() {
             var id = dbHelper.getAllData().size
             dbHelper.insertCiclo(Ciclo(id, inputTitulo.toString(), inputFullName.toString()))
             Toast.makeText(context, "¡Ciclo Guardado!", Toast.LENGTH_SHORT).show()
+            activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.fragment_container,FormFragment(dbHelper))?.addToBackStack(null)?.commit()
         }
 
-        btnList.setOnClickListener() { dbHelper.logListData() }
+        btnList.setOnClickListener() {
+            dbHelper.logListData()
+            Toast.makeText(context, "¡Listado en LOG!", Toast.LENGTH_SHORT).show()
+        }
 
         btnDelete.setOnClickListener(){
             val builder = AlertDialog.Builder(context)
