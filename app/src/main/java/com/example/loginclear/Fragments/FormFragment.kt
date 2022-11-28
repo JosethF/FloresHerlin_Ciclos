@@ -29,6 +29,7 @@ class FormFragment(dbH: CicloDBHelper) : Fragment() {
         val btnList : Button = view.findViewById(R.id.buttonList)
         val btnDelete : Button = view.findViewById(R.id.buttonDelete)
 
+        //ACTION FOR THE SAVE INFORMATION BUTTON
         btnForm.setOnClickListener(){
             val titulo : EditText = view.findViewById(R.id.txtTitle)
             val inputTitulo = titulo.text.toString()
@@ -40,11 +41,13 @@ class FormFragment(dbH: CicloDBHelper) : Fragment() {
             activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.fragment_container,FormFragment(dbHelper))?.addToBackStack(null)?.commit()
         }
 
+        //ACTION FOR THE LOGLIST BUTTON
         btnList.setOnClickListener() {
             dbHelper.logListData()
             Toast.makeText(context, "¡Listado en LOG!", Toast.LENGTH_SHORT).show()
         }
 
+        //ACTION FOR DELETE ALL TABLE INFORMATION
         btnDelete.setOnClickListener(){
             val builder = AlertDialog.Builder(context)
             builder.setMessage("¿Estás seguro que quieres borrar todos los ciclos? ¡Desgraciado!")

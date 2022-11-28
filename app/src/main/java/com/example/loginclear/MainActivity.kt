@@ -20,8 +20,9 @@ class MainActivity : AppCompatActivity() {
         var txtPassword:EditText = findViewById(R.id.txtPassword);
         var txtLabel:TextView = findViewById(R.id.loginResult);
 
+        //CHECK THE LOGIN APP
         btnSignIn.setOnClickListener(){
-            if(txtUsername.text.toString() == "" && txtPassword.text.toString() == ""){
+            if(txtUsername.text.toString() == "admin" && txtPassword.text.toString() == "admin"){
                 val intent = Intent(this, HomeActivity::class.java)
                 startActivity(intent)
             }else{ txtLabel.text = "Datos incorrectos" }

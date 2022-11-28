@@ -23,6 +23,7 @@ class HomeActivity: AppCompatActivity() {
 
         dbHelper = CicloDBHelper(this);
 
+        //CHANGE THE FRAGMENT CLICKED
         bottomNav.setOnItemSelectedListener { item: MenuItem ->
             when (item.itemId) {
                 R.id.nav_home -> {
@@ -49,6 +50,7 @@ class HomeActivity: AppCompatActivity() {
         transaction.commit()
     }
 
+    //DATABASE DESTRUCTION
     override fun onDestroy() {
         dbHelper.close()
         super.onDestroy()

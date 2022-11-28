@@ -31,6 +31,7 @@ class RecyclerViewAdapter(llistat: MutableList<Ciclo>, context: Context?, db:Cic
         holder.txtTitle.text = llistat[position].title;
         holder.txtFullName.text = llistat[position].fullName;
 
+        //CAHNGE FRAGMENT BY THE PRESSED ITEM
         holder.itemView.setOnClickListener(
             object:View.OnClickListener{
                 override fun onClick(v: View?) {
@@ -40,6 +41,7 @@ class RecyclerViewAdapter(llistat: MutableList<Ciclo>, context: Context?, db:Cic
             }
         )
 
+        //DELETE THE PRESSED ITEM
         holder.btnRemoveItem.setOnClickListener(
             object:View.OnClickListener{
                 override fun onClick(v: View?) {
@@ -57,6 +59,7 @@ class RecyclerViewAdapter(llistat: MutableList<Ciclo>, context: Context?, db:Cic
         return llistat.size;
     }
 
+    //SET ALL THE LAYOUT ITEMS
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val txtTitle: TextView = view.findViewById(R.id.txtTitleList);
         val txtFullName: TextView = view.findViewById(R.id.txtFullNameList);

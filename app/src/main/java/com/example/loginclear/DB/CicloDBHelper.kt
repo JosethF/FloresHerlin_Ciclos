@@ -18,15 +18,18 @@ class CicloDBHelper (context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         const val DATABASE_VERSION = 1
         const val DATABASE_NAME = "ciclos.db"
     }
-
+    //DATABASE CREATION
     override fun onCreate(db: SQLiteDatabase) {
         db.execSQL(SQL_CREATE_ENTRIES)
     }
+
+    //DELETE THE LAST DB IF EXISTS
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
         db.execSQL(SQL_DELETE_ENTRIES)
         onCreate(db)
     }
 
+    //CREATE A NEW ROW CALLED CICLO WITH ITS ATTRIBUTES
     fun insertCiclo(l: Ciclo) {
         val values = ContentValues()
         values.put(COLUMN_NAME_TITLE, l.title)
@@ -36,6 +39,7 @@ class CicloDBHelper (context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         db.insert(TABLE_NAME, null, values)
     }
 
+    //COLLECT ALL THE DATA FROM THE UNIQUE TABLE
     fun getAllData():MutableList<Ciclo>{
         var db = this.readableDatabase
         var rs = db.rawQuery("SELECT * FROM $TABLE_NAME",null)
@@ -53,16 +57,19 @@ class CicloDBHelper (context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         return llistat;
     }
 
+    //DELETE THE SELECTED ROW
     fun deleteSelectData(id: Int) {
         var db = this.writableDatabase
         db.execSQL("DELETE FROM $TABLE_NAME WHERE id=$id")
     }
 
+    //DELETE ALL THE DATA OF THE TABLE
     fun deleteAllData() {
         var db = this.writableDatabase
         db.execSQL("DELETE FROM $TABLE_NAME");
     }
 
+    //PRINT ALL THE TABLE INFORMATION
     fun logListData(){
         var db = this.readableDatabase
         var rs = db.rawQuery("SELECT * FROM $TABLE_NAME",null)
