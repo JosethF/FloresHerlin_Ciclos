@@ -3,7 +3,6 @@ package com.example.loginclear.Recycler
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,9 +14,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.loginclear.Ciclo
 import com.example.loginclear.DB.CicloDBHelper
 import com.example.loginclear.Fragments.DetailFragment
-import com.example.loginclear.Fragments.FormFragment
-import com.example.loginclear.Fragments.ListFragment
-import com.example.loginclear.HomeActivity
 import com.example.loginclear.R
 
 class RecyclerViewAdapter(llistat: MutableList<Ciclo>, context: Context?, db:CicloDBHelper): RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>() {
@@ -39,18 +35,22 @@ class RecyclerViewAdapter(llistat: MutableList<Ciclo>, context: Context?, db:Cic
             object:View.OnClickListener{
                 override fun onClick(v: View?) {
                     val activity = v!!.context as AppCompatActivity
-                    val llistat = dbHelper.getAllData()
                     activity.supportFragmentManager.beginTransaction().replace(R.id.fragment_container, DetailFragment(llistat[position])).addToBackStack(null).commit();
                 }
             }
         )
 
-        holder.btnRemoveItem.setOnClickListener(){
-            var lista = dbHelper.getAllData()
-            var item = lista[position].id
-            dbHelper.deleteSelectData(item)
-            Toast.makeText(context, "¡Ciclo Borrado!", Toast.LENGTH_SHORT).show()
-        }
+        holder.btnRemoveItem.setOnClickListener(
+            object:View.OnClickListener{
+                override fun onClick(v: View?) {
+                    llistat.removeAt(position);
+                    notifyItemRemoved(position)
+                    notifyItemRangeChanged(position,llistat.size);
+                    Toast.makeText(context, "¡Ciclo Borrado!", Toast.LENGTH_SHORT).show()
+                }
+            }
+        )
+
     }
 
     override fun getItemCount(): Int {

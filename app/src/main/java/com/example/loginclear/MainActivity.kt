@@ -12,6 +12,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        SystemClock.sleep(200);
+        setTheme(R.style.Theme_LoginClear);
         var btnSignIn: Button = findViewById(R.id.btnSignIn);
         var txtUsername: EditText = findViewById(R.id.txtUsername);
         var txtPassword:EditText = findViewById(R.id.txtPassword);
@@ -23,7 +26,5 @@ class MainActivity : AppCompatActivity() {
                 startActivity(intent)
             }else{ txtLabel.text = "Datos incorrectos" }
         }
-        SystemClock.sleep(200);
-        setTheme(R.style.SplashTheme);
     }
 }
