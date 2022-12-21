@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+
     <EditText
         android:id="@+id/txtUsername"
         android:layout_width="wrap_content"
@@ -14,7 +15,7 @@
         android:drawableStart="@drawable/custom_email_icon"
         android:drawablePadding="12dp"
         android:ems="10"
-        android:hint="Username"
+        android:hint="@string/usernameHint"
         android:inputType="textPersonName"
         android:minHeight="48dp"
         android:padding="12dp"
@@ -34,7 +35,7 @@
         android:drawableStart="@drawable/custom_lock_icon"
         android:drawablePadding="12dp"
         android:ems="10"
-        android:hint="Password"
+        android:hint="@string/passwordHint"
         android:inputType="textPassword"
         android:minHeight="48dp"
         android:padding="12dp"
@@ -49,6 +50,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="228dp"
+        android:text="@string/loginResult"
+        android:textColor="@color/white"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -59,7 +63,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="44dp"
-        android:text="Button"
+        android:text="@string/button"
         app:layout_constraintBottom_toTopOf="@+id/loginResult"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"

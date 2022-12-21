@@ -1,6 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">LoginClear</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="home_fragment">Hello Home</string>
-    <string name="form_fragment">Hello Form</string>
+    <string name="titleToolbar">ChangeLanguage</string>
+    <string name="usernameHint">Username</string>
+    <string name="passwordHint">Password</string>
+    <string name="button">BUTTON</string>
+    <string name="loginResult">Incorrect Data</string>
+    <string name="contentHome">HOME</string>
+    <string name="titleForm">Title</string>
+    <string name="fullNameForm">FullName</string>
+    <string name="saveButton">SAVE</string>
+    <string name="listButton">LIST</string>
+    <string name="deleteButton">DELETE</string>
+    <string name="toolbarFav">FAV</string>
+    <string name="toolbarAndroid">ANDROID</string>
+    <string name="toolbarLogout">LOGOUT</string>
+    <string name="toolbarSettings">SETTINGS</string>
+    <string name="titleLanguage">CHOOSE LANGUAGE</string>
+    <string-array name="selectedLanguage">
+        <item name="language">Spanish</item>
+        <item name="language">English</item>
+        <item name="language">Catala</item>
+    </string-array>
 </resources>

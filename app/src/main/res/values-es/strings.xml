@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Project Login</string>
+    <string name="titleToolbar">MultipleLenguaje</string>
+    <string name="usernameHint">Usuario</string>
+    <string name="passwordHint">Contraseña</string>
+    <string name="button">BOTÓN</string>
+    <string name="loginResult">Datos Incorrectos</string>
+    <string name="contentHome">INICIO</string>
+    <string name="titleForm">Título</string>
+    <string name="fullNameForm">Nombre Completo</string>
+    <string name="saveButton">GUARDA</string>
+    <string name="listButton">LISTAR</string>
+    <string name="deleteButton">BORRAR</string>
+    <string name="toolbarFav">FAV</string>
+    <string name="toolbarAndroid">ANDROID</string>
+    <string name="toolbarLogout">Cerrar Sesión</string>
+    <string name="toolbarSettings">Configuración</string>
+    <string name="titleLanguage">ESCOGE LENGUAJE</string>
+    <string-array name="selectedLanguage">
+        <item name="language">Español</item>
+        <item name="language">Inglés</item>
+        <item name="language">Catalán</item>
+    </string-array>
+</resources>

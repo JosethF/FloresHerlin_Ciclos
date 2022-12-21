@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">LoginClear</string>
+    <string name="titleToolbar">CanviaIdioma</string>
+    <string name="usernameHint">Usuari</string>
+    <string name="passwordHint">Contrasenya</string>
+    <string name="button">BOTÓ</string>
+    <string name="loginResult">Dades Incorrectes</string>
+    <string name="contentHome">INICI</string>
+    <string name="titleForm">Titol</string>
+    <string name="fullNameForm">NomComplet</string>
+    <string name="saveButton">GUARDAR</string>
+    <string name="listButton">LLISTAR</string>
+    <string name="deleteButton">ESBORRAR</string>
+    <string name="toolbarFav">FAV</string>
+    <string name="toolbarAndroid">ANDROID</string>
+    <string name="toolbarLogout">TANCAR SESSIÓ</string>
+    <string name="toolbarSettings">CONFIGURACIÓ</string>
+    <string name="titleLanguage">TRIAR LLENGUATGE</string>
+    <string-array name="selectedLanguage">
+        <item name="language">Espanyol</item>
+        <item name="language">Anglès</item>
+        <item name="language">Català</item>
+    </string-array>
+</resources>

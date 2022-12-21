@@ -1,6 +1,5 @@
 package com.example.loginclear.Fragments
 
-import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.content.DialogInterface
 import android.os.Bundle
@@ -18,7 +17,6 @@ import com.example.loginclear.R
 class FormFragment(dbH: CicloDBHelper) : Fragment() {
     var dbHelper = dbH;
 
-    @SuppressLint("ResourceType")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -38,6 +36,7 @@ class FormFragment(dbH: CicloDBHelper) : Fragment() {
             var id = dbHelper.getAllData().size
             dbHelper.insertCiclo(Ciclo(id, inputTitulo.toString(), inputFullName.toString()))
             Toast.makeText(context, "¡Ciclo Guardado!", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, "", Toast.LENGTH_SHORT).show()
             activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.fragment_container,FormFragment(dbHelper))?.addToBackStack(null)?.commit()
         }
 

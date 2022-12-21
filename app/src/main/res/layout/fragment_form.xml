@@ -9,42 +9,43 @@
         android:id="@+id/txtTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="216dp"
+        android:layout_marginTop="136dp"
+        android:autofillHints=""
         android:ems="10"
-        android:hint="Título"
+        android:hint="@string/titleForm"
         android:inputType="textPersonName"
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:autofillHints="" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/txtFullName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="52dp"
+        android:autofillHints=""
         android:ems="10"
-        android:hint="Nombre Completo"
+        android:hint="@string/fullNameForm"
         android:inputType="textPersonName"
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtTitle"
-        android:autofillHints="" />
-
+        app:layout_constraintTop_toBottomOf="@+id/txtTitle" />
 
     <Button
         android:id="@+id/buttonForm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:text="Guarda"
+        android:layout_marginTop="40dp"
         android:elevation="5dp"
-        android:translationZ="5dp"
         android:stateListAnimator="@null"
+        android:text="@string/saveButton"
+        android:translationZ="5dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtFullName" />
 
@@ -52,16 +53,16 @@
         android:id="@+id/buttonList"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="52dp"
+        android:layout_marginStart="36dp"
         android:layout_marginTop="52dp"
-        android:text="LISTAR"
         android:elevation="5dp"
-        android:translationZ="5dp"
         android:stateListAnimator="@null"
+        android:text="@string/listButton"
+        android:translationZ="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonForm"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.034" />
 
     <Button
         android:id="@+id/buttonDelete"
@@ -69,15 +70,16 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="134dp"
         android:layout_marginTop="46dp"
-        android:text="Borrar"
         android:elevation="5dp"
-        android:translationZ="5dp"
         android:stateListAnimator="@null"
+        android:text="@string/deleteButton"
+        android:translationZ="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.271"
         app:layout_constraintStart_toEndOf="@+id/buttonList"
         app:layout_constraintTop_toBottomOf="@+id/buttonForm"
-        app:layout_constraintVertical_bias="0.071" />
+        app:layout_constraintVertical_bias="0.056" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
